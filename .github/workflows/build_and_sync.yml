@@ -18,8 +18,9 @@ jobs:
   sleep:
     needs: build
     name: Sleep for 10 seconds
-    run: sleep 10s
-    shell: bash
+    runs-on: ubuntu-latest
+    steps:
+        run: sleep 10s
 
   sync:
     needs: [build, sleep]
