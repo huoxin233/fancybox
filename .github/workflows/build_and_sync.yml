@@ -14,9 +14,15 @@ jobs:
       - uses: flarum/action-build@master
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+  sleep:
+    needs: build
+    name: Sleep for 10 seconds
+    run: sleep 10s
+    shell: bash
 
   sync:
-    needs: build
+    needs: [build, sleep]
     runs-on: ubuntu-latest
     name: Git Repo Sync
     steps:
