@@ -20,6 +20,7 @@ jobs:
     name: Sleep for 10 seconds
     runs-on: ubuntu-latest
     steps:
+      - name: Run sleep command
         run: sleep 10s
 
   sync:
